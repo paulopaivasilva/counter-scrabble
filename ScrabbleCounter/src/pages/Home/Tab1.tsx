@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { IonContent, IonPage, IonButton, IonGrid, IonRow, IonText, IonIcon } from '@ionic/react';
+import { IonContent, IonPage, IonButton, IonGrid, IonRow, IonText, IonIcon, IonPopover } from '@ionic/react';
 import { backspace } from 'ionicons/icons'
 import './Tab1.css';
 import points from '../../Points/pt-br';
 
 class Tab1 extends Component {
   state = {
+    isOpen: false,
     currentPlayer: "",
     currentWord: "",
     statusGame: true,
@@ -117,13 +118,23 @@ class Tab1 extends Component {
               <IonRow className="ion-justify-content-center margin10">
                 {points.map((letter, i) => {
                   return(
-                    <IonButton 
-                      onClick={() => this.setPoint(letter.value, letter.name)}
-                      style={{ marginTop: 10, marginRight: 10, marginLeft: 10}}
-                      color="light" 
-                      key={i}>
-                      { letter.name }
-                    </IonButton>
+                    <div>
+                      <IonButton 
+                        onClick={() => this.setState({ isOpen: true })}
+                        style={{ marginTop: 10, marginRight: 10, marginLeft: 10}}
+                        color="light"
+                        key={i}>
+                        { letter.name }
+                        <IonPopover 
+                          key={i.toString()} 
+                          isOpen={this.state.isOpen}
+                          cssClass="my-custom-class"
+                          showBackdrop={false}
+                          onDidDismiss={() => this.setState({ isOpen: false })} >
+                        <p>teste</p>
+                      </IonPopover>
+                      </IonButton>
+                    </div>
                   )
                 })}
               </IonRow>

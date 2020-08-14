@@ -10,3 +10,11 @@
 .margin20 {
     margin-top: 20px;
 }
+
+.popover-content {
+    background: #EEEEEE;
+}
+
+.my-custom-class .popover-content {
+    background: #EEEEEE;
+}
