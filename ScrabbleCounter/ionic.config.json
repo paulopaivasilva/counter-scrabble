@@ -1,0 +1,7 @@
+{
+  "name": "ScrabbleCounter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
