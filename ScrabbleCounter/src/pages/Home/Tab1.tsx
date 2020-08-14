@@ -85,9 +85,8 @@ class Tab1 extends Component {
     return (
       <IonPage>
       <IonContent>
-        <IonGrid>
           {this.state.statusGame ? 
-            <div>
+            <IonGrid>
               <IonRow className="ion-justify-content-center margin20">
                 {this.state.results.map((result, i) => {
                   return(
@@ -135,8 +134,8 @@ class Tab1 extends Component {
                   Finalizar o Jogo
                 </IonButton>
               </IonRow>
-            </div> :
-            <div>
+            </IonGrid> :
+            <IonGrid>
               <IonRow className="ion-justify-content-center margin5">
                 <IonButton 
                   onClick={() => this.showResults(1)}
@@ -153,9 +152,8 @@ class Tab1 extends Component {
                   </IonRow>
                 )
               })}
-            </div>
+            </IonGrid>
           }
-        </IonGrid>
       </IonContent>
     </IonPage>
     )
